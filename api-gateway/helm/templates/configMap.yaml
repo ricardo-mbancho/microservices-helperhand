@@ -1,0 +1,15 @@
+apiVersion: v1
+
+kind: ConfigMap
+
+metadata:
+
+  name: {{ .Release.Name }}
+
+data:
+
+  AUTH_SERVICE: {{ .Values.env.AUTH_SERVICE }}
+
+  USER_SERVICE: {{ .Values.env.USER_SERVICE }}
+
+  BOOKING_SERVICE: {{ .Values.env.BOOKING_SERVICE }}

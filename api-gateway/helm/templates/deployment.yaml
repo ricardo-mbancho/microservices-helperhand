@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+
+  name: {{ .Release.Name }}
+
+spec:
+
+  replicas: {{ .Values.replicaCount }}
+
+  selector:
+
+    matchLabels:
+
+      app: {{ .Release.Name }}
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: {{ .Release.Name }}
+
+    spec:
+
+      containers:
+
+      - name: api-gateway
+
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+
+        ports:
+
+        - containerPort: {{ .Values.container.port }}
+
+        envFrom:
+
+        - configMapRef:
+
+            name: {{ .Release.Name }}
+
+        resources:
+
+          {{- toYaml .Values.resources | nindent 10 }}
+
+        readinessProbe:
+
+          httpGet:
+
+            path: /
+
+            port: 3000
+
+        livenessProbe:
+
+          httpGet:
+
+            path: /
+
+            port: 3000
