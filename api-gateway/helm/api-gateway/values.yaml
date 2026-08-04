@@ -1,0 +1,45 @@
+replicaCount: 2
+
+image:
+
+  repository: jasbjkbsabdkas/api-gateway
+
+  tag: latest
+
+  pullPolicy: Always
+
+service:
+
+  type: ClusterIP
+
+  port: 80
+
+container:
+
+  port: 3000
+
+ingress:
+
+  enabled: true
+
+  host: handyhand.local
+
+env:
+
+  AUTH_SERVICE: http://auth-service:3001
+
+  USER_SERVICE: http://user-service:3002
+
+  BOOKING_SERVICE: http://booking-service:3003
+
+resources:
+
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+  limits:
+
+    cpu: 500m
+
+    memory: 512Mi
