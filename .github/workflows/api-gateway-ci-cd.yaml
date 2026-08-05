@@ -31,7 +31,7 @@ jobs:
 
     run:
 
-      docker build -t ${{ secrets.DOCKER_USERNAME }}/api-gateway:${{ github.sha }} .
+      docker build -t ${{ secrets.DOCKER_USERNAME }}/api-gateway:${{ github.sha }}  ./microservices/api-gateway
 
   - name: Push image
 
