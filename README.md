@@ -1,4 +1,4 @@
-# HandyHand
+# Helperhand
 
 A microservices-based platform for connecting customers with local service providers.
 
