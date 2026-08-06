@@ -15,7 +15,7 @@ spec:
   ports:
 
   - port: {{ .Values.service.port }}
-
+  enabled: true
     targetPort: {{ .Values.container.port }}
 
 

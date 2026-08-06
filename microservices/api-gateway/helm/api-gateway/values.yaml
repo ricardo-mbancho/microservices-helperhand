@@ -9,20 +9,12 @@ image:
   pullPolicy: Always
 
 service:
-
   type: ClusterIP
-
-  port: 80
+  port: 90
 
 container:
-
   port: 3000
 
-ingress:
-
-  enabled: true
-
-  host: handyhand.local
 
 env:
 
